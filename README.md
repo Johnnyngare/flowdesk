@@ -1,75 +1,130 @@
-# Nuxt Minimal Starter
+# FlowDesk 🚀
 
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+A modern, full-stack SaaS productivity dashboard built with **Nuxt 3**, 
+**Supabase**, and **Tailwind CSS**. Users can manage projects, track tasks, 
+view analytics, and manage their workspace.
 
-## Setup
+> 🔗 **Live Demo:** [flowdesk.vercel.app](https://flowdesk.vercel.app) *(coming soon)*
 
-Make sure to install dependencies:
+---
 
+## Screenshots
+
+> *(coming soon)*
+
+| Dashboard | Projects | Tasks |
+|-----------|----------|-------|
+| ![Dashboard](public/images/screenshot-dashboard.png) | ![Projects](public/images/screenshot-projects.png) | ![Tasks](public/images/screenshot-tasks.png) |
+
+---
+
+## Features
+
+- 🔐 **Authentication** — Secure login and signup with Supabase Auth
+- 📊 **Dashboard** — KPI cards, activity feed, weekly progress
+- 📁 **Project Manager** — Create and manage projects with color labels
+- ✅ **Task Manager** — Create, update, and complete tasks with priorities
+- 📈 **Analytics** — Visual charts for productivity tracking
+- ⚙️ **Settings** — Profile management and subscription status
+- 🌙 **Dark Theme** — Fully dark, modern UI design
+- 📱 **Responsive** — Works on desktop and mobile
+
+---
+
+## Tech Stack
+
+| Technology | Purpose |
+|------------|---------|
+| [Nuxt 3](https://nuxt.com) | Full-stack Vue framework (SSR + routing) |
+| [Supabase](https://supabase.com) | Authentication + PostgreSQL database |
+| [Nuxt UI](https://ui.nuxt.com) | Component library built on Tailwind CSS |
+| [Tailwind CSS](https://tailwindcss.com) | Utility-first styling |
+| [Pinia](https://pinia.vuejs.org) | State management |
+| [Vue Chart.js](https://vue-chartjs.org) | Analytics charts |
+| [Vercel](https://vercel.com) | Deployment and hosting |
+
+---
+
+## Getting Started
+
+### Prerequisites
+- Node.js 18+
+- npm or pnpm
+- A free [Supabase](https://supabase.com) account
+
+### Installation
 ```bash
-# npm
+# Clone the repository
+git clone https://github.com/YOURUSERNAME/flowdesk.git
+cd flowdesk
+
+# Install dependencies
 npm install
 
-# pnpm
-pnpm install
+# Set up environment variables
+cp .env.example .env
+# Add your Supabase URL and anon key to .env
 
-# yarn
-yarn install
-
-# bun
-bun install
-```
-
-## Development Server
-
-Start the development server on `http://localhost:3000`:
-
-```bash
-# npm
+# Start development server
 npm run dev
-
-# pnpm
-pnpm dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
 ```
 
-## Production
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-Build the application for production:
+### Environment Variables
 
+Create a `.env` file in the project root:
+```env
+SUPABASE_URL=your_supabase_project_url
+SUPABASE_KEY=your_supabase_anon_key
+```
+
+---
+
+## Project Structure
+```
+flowdesk/
+├── pages/                  # File-based routing
+│   ├── index.vue           # Redirects to dashboard
+│   ├── login.vue           # Authentication
+│   ├── signup.vue
+│   └── dashboard/
+│       ├── index.vue       # Main dashboard
+│       ├── projects.vue
+│       ├── tasks.vue
+│       ├── analytics.vue
+│       └── settings.vue
+├── components/             # Reusable UI components
+│   ├── AppSidebar.vue
+│   └── AppTopbar.vue
+├── layouts/                # Page layout wrappers
+│   └── dashboard.vue
+├── composables/            # Reusable logic
+├── stores/                 # Pinia state management
+├── server/api/             # Backend API routes
+└── types/                  # TypeScript definitions
+```
+
+---
+
+## Deployment
+
+This project is deployed on Vercel. To deploy your own instance:
 ```bash
-# npm
-npm run build
-
-# pnpm
-pnpm build
-
-# yarn
-yarn build
-
-# bun
-bun run build
+npm install -g vercel
+vercel
 ```
 
-Locally preview production build:
+Add your environment variables in the Vercel dashboard under Project Settings → Environment Variables.
 
-```bash
-# npm
-npm run preview
+---
 
-# pnpm
-pnpm preview
+## License
 
-# yarn
-yarn preview
+MIT License — feel free to use this project as a reference or template.
 
-# bun
-bun run preview
-```
+---
 
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+## Author
+
+**Johnnyngare** — (https://github.com/Johnnyngare)
