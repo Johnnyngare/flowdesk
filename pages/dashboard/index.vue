@@ -1,9 +1,6 @@
-<!-- pages/dashboard/index.vue -->
-<!-- This is the main dashboard overview page at /dashboard -->
 <template>
   <div class="space-y-6">
 
-    <!-- KPI stat cards row -->
     <div class="grid grid-cols-2 xl:grid-cols-4 gap-4">
       <UCard
         v-for="stat in stats"
@@ -25,10 +22,8 @@
       </UCard>
     </div>
 
-    <!-- Two column section -->
     <div class="grid grid-cols-1 xl:grid-cols-3 gap-4">
 
-      <!-- Recent tasks — takes 2/3 width -->
       <UCard class="xl:col-span-2 bg-[#0b0f1a] border border-[#1a2035]">
         <template #header>
           <div class="flex items-center justify-between">
@@ -39,20 +34,17 @@
           </div>
         </template>
 
-        <!-- Task list -->
         <div class="space-y-3">
           <div
             v-for="task in recentTasks"
             :key="task.id"
             class="flex items-center gap-3 p-3 rounded-lg hover:bg-white/5 transition-colors"
           >
-            <!-- Checkbox -->
             <input
               type="checkbox"
               :checked="task.status === 'done'"
               class="w-4 h-4 rounded accent-indigo-500"
             />
-            <!-- Task info -->
             <div class="flex-1 min-w-0">
               <p class="text-sm text-white truncate"
                  :class="{ 'line-through text-gray-500': task.status === 'done' }">
@@ -60,7 +52,6 @@
               </p>
               <p class="text-xs text-gray-600 mt-0.5">{{ task.project }}</p>
             </div>
-            <!-- Priority badge -->
             <UBadge
               :label="task.priority"
               :color="task.priority === 'high' ? 'error' :
@@ -72,7 +63,6 @@
         </div>
       </UCard>
 
-      <!-- Quick stats sidebar — 1/3 width -->
       <UCard class="bg-[#0b0f1a] border border-[#1a2035]">
         <template #header>
           <h2 class="text-white font-semibold">This Week</h2>
@@ -98,12 +88,11 @@
 </template>
 
 <script setup lang="ts">
-// Tell Nuxt: use the dashboard layout and protect this route
 definePageMeta({
   layout: 'dashboard',
+  middleware: 'auth',
 })
 
-// Placeholder data — we'll replace with real Supabase data in Steps 8–9
 const stats = [
   { label: 'Active Projects', value: '6',    change: '2 new',  up: true,  icon: 'i-heroicons-folder',        iconBg: 'rgba(99,102,241,0.1)',  iconColor: '#6366f1' },
   { label: 'Open Tasks',      value: '24',   change: '5 less', up: true,  icon: 'i-heroicons-check-circle',  iconBg: 'rgba(16,185,129,0.1)',  iconColor: '#10b981' },

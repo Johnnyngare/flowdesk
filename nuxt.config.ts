@@ -7,9 +7,22 @@ export default defineNuxtConfig({
 
   modules: [
     '@nuxt/ui',
+    '@nuxtjs/supabase',
   ],
 
   css: ['~/assets/css/main.css'],
 
+  runtimeConfig: {
+    public: {
+      supabase: {
+        redirectOptions: {
+          login: '/login',
+          callback: '/confirm',
+          exclude: ['/', '/login', '/signup'],
+        }
+      }
+    }
+  },
 })
+
 

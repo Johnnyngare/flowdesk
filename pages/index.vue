@@ -1,10 +1,7 @@
-<!-- pages/index.vue -->
 <script setup lang="ts">
 import { navigateTo } from "nuxt/app";
 import { onMounted } from "vue";
 
-// Redirect the homepage to dashboard
-// When auth is set up, unauthenticated users will be sent to /login instead
 onMounted(() => {
   navigateTo("/dashboard");
 });

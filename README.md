@@ -1,6 +1,6 @@
 # FlowDesk 🚀
 
-A modern, full-stack SaaS productivity dashboard built with **Nuxt 3**, 
+A modern, full-stack SaaS productivity dashboard built with **Nuxt 4**, 
 **Supabase**, and **Tailwind CSS**. Users can manage projects, track tasks, 
 view analytics, and manage their workspace.
 

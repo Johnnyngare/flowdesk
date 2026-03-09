@@ -1,7 +1,7 @@
 <!-- components/AppTopbar.vue -->
 <template>
   <header
-    class="h-16 flex-shrink-0 bg-[#0b0f1a] border-b border-[#1a2035] flex items-center justify-between px-6"
+    class="h-16 shrink-0 bg-[#0b0f1a] border-b border-[#1a2035] flex items-center justify-between px-6"
   >
     <!-- Page title (changes per page) -->
     <div>
@@ -9,9 +9,7 @@
       <p class="text-gray-500 text-xs">{{ pageSubtitle }}</p>
     </div>
 
-    <!-- Right side actions -->
     <div class="flex items-center gap-3">
-      <!-- Notification bell -->
       <UButton
         icon="i-heroicons-bell"
         color="neutral"
@@ -19,7 +17,6 @@
         size="sm"
       />
 
-      <!-- New task quick action -->
       <UButton
         label="New Task"
         icon="i-heroicons-plus"
@@ -36,7 +33,6 @@ import { useRoute } from "vue-router";
 
 const route = useRoute();
 
-// Automatically change the page title based on the current URL
 const pageTitles: Record<string, { title: string; subtitle: string }> = {
   "/dashboard": {
     title: "Overview",
