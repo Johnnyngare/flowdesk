@@ -19,6 +19,7 @@
   },
   "devDependencies": {
     "@iconify-json/heroicons": "^1.2.3",
-    "@types/node": "^25.3.5"
+    "@types/node": "^25.3.5",
+    "supabase": "^2.77.1"
   }
 }

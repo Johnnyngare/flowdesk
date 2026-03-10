@@ -12,8 +12,10 @@ export interface Project {
   user_id: string
   name: string
   description: string | null
-  color: string
+  status: 'active' | 'completed' | 'archived' | null  // ← added null
+  color: string | null
   created_at: string
+  updated_at: string
   task_count?: number
 }
 
@@ -22,8 +24,14 @@ export interface Task {
   project_id: string
   user_id: string
   title: string
-  status: 'todo' | 'in_progress' | 'done'
-  priority: 'low' | 'medium' | 'high'
+  description: string | null
+  priority: 'low' | 'medium' | 'high' | null          // ← added null
+  status: 'todo' | 'in_progress' | 'done' | null      // ← added null
   due_date: string | null
   created_at: string
+  updated_at: string
+  project?: {
+    name: string
+    color: string | null
+  }
 }
