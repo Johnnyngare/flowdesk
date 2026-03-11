@@ -1,11 +1,8 @@
-<!-- pages/dashboard/index.vue -->
 <template>
   <div class="space-y-6">
 
-    <!-- KPI Cards -->
     <div class="grid grid-cols-2 xl:grid-cols-4 gap-4">
 
-      <!-- Show skeleton while loading, real data after -->
       <template v-if="loadingStats">
         <div v-for="i in 4" :key="i"
              class="bg-[#0b0f1a] border border-[#1a2035] rounded-xl p-6 animate-pulse">
@@ -86,10 +83,8 @@
       </template>
     </div>
 
-    <!-- Recent Tasks + Weekly Stats -->
     <div class="grid grid-cols-1 xl:grid-cols-3 gap-4">
 
-      <!-- Recent Tasks -->
       <UCard class="xl:col-span-2 bg-[#0b0f1a] border border-[#1a2035]">
         <template #header>
           <div class="flex items-center justify-between">
@@ -100,7 +95,6 @@
           </div>
         </template>
 
-        <!-- Loading state -->
         <div v-if="tasksLoading" class="space-y-3">
           <div v-for="i in 4" :key="i"
                class="flex items-center gap-3 p-3 animate-pulse">
@@ -112,7 +106,6 @@
           </div>
         </div>
 
-        <!-- Empty state -->
         <div v-else-if="recentTasks.length === 0"
              class="text-center py-8">
           <UIcon name="i-heroicons-clipboard-document-list"
@@ -124,7 +117,6 @@
           </NuxtLink>
         </div>
 
-        <!-- Real task list -->
         <div v-else class="space-y-1">
           <div
             v-for="task in recentTasks"
@@ -158,7 +150,6 @@
         </div>
       </UCard>
 
-      <!-- Weekly Stats -->
       <UCard class="bg-[#0b0f1a] border border-[#1a2035]">
         <template #header>
           <h2 class="text-white font-semibold">Overview</h2>
@@ -222,7 +213,6 @@ definePageMeta({
   middleware: 'auth',
 })
 
-// Use our composables — all the Supabase logic lives there
 const { projects, activeProjects, fetchProjects, loading: loadingStats } = useProjects()
 const {
   tasks,
@@ -235,14 +225,12 @@ const {
 
 const supabase = useSupabaseClient()
 
-// Recent tasks is a subset of all tasks
 const recentTasks = computed(() => tasks.value.slice(0, 5))
 
 const inProgressTasks = computed(() =>
   tasks.value.filter((t: Task) => t.status === 'in_progress')
 )
 
-// Progress bar percentages — avoid dividing by zero
 const completionPercent = computed(() => {
   if (tasks.value.length === 0) return 0
   return Math.round((completedTasks.value.length / tasks.value.length) * 100)
@@ -258,7 +246,6 @@ const highPriorityPercent = computed(() => {
   return Math.round((highPriorityTasks.value.length / tasks.value.length) * 100)
 })
 
-// Toggle a task between done and todo directly from the dashboard
 
 
 async function toggleTask(task: Task) {
@@ -272,7 +259,6 @@ async function toggleTask(task: Task) {
   await fetchRecentTasks()
 }
 
-// Fetch all data when the page loads
 onMounted(async () => {
   await Promise.all([
     fetchProjects(),

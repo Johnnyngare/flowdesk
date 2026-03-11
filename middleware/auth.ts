@@ -1,4 +1,3 @@
-
 export default defineNuxtRouteMiddleware(async () => {
   const user = useSupabaseUser()
 

@@ -1,9 +1,7 @@
-<!-- components/AppTopbar.vue -->
 <template>
   <header
     class="h-16 shrink-0 bg-[#0b0f1a] border-b border-[#1a2035] flex items-center justify-between px-6"
   >
-    <!-- Page title (changes per page) -->
     <div>
       <h1 class="text-white font-semibold text-lg">{{ pageTitle }}</h1>
       <p class="text-gray-500 text-xs">{{ pageSubtitle }}</p>

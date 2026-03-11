@@ -1,4 +1,3 @@
-// types/index.ts
 export interface User {
   id: string
   email: string
@@ -12,7 +11,7 @@ export interface Project {
   user_id: string
   name: string
   description: string | null
-  status: 'active' | 'completed' | 'archived' | null  // ← added null
+  status: 'active' | 'completed' | 'archived' | null 
   color: string | null
   created_at: string
   updated_at: string
@@ -25,8 +24,8 @@ export interface Task {
   user_id: string
   title: string
   description: string | null
-  priority: 'low' | 'medium' | 'high' | null          // ← added null
-  status: 'todo' | 'in_progress' | 'done' | null      // ← added null
+  priority: 'low' | 'medium' | 'high' | null         
+  status: 'todo' | 'in_progress' | 'done' | null     
   due_date: string | null
   created_at: string
   updated_at: string

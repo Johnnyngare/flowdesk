@@ -1,4 +1,3 @@
-// composables/useProjects.ts
 import type { Project } from '~/types'
 
 export const useProjects = () => {
@@ -27,7 +26,6 @@ export const useProjects = () => {
       return
     }
 
-    // Cast to our Project type — we trust our own database schema
     projects.value = (data as Project[]) || []
   }
 
