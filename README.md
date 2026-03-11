@@ -8,7 +8,6 @@ through a real-time analytics dashboard.
 📂 **[GitHub](https://github.com/Johnnyngare/flowdesk)**
 
 > Demo account: demo@flowdesk.app / Demo1234!
-> (Create this account in your app so recruiters can log straight in)
 
 ---
 
